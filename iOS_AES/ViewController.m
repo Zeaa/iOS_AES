@@ -35,6 +35,17 @@
     
     
     
+    NSString *hexEncrypted = @"2ae1575fe1763825325f6089923cfb5903ace27abeb2fb1250a5f546c4be49";
+    NSData *encryptedData = [NSData dataForHexString:hexEncrypted];
+    // 解密十六进制数据（原数据类型为json数据）
+    NSData *decryptedData = [encryptedData AES128DecryptWithKey:key iv:iv];
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:decryptedData options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"jsonDict:%@", jsonDict);
+    
+    
+    
+    
+    
     //server处理
     //server 会对AES加密后的data1 进行base64加密，然后将str提供给前端处理
     NSData *data3 = [GTMBase64 encodeData:data1];

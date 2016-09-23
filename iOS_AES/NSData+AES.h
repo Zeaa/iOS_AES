@@ -11,11 +11,13 @@
 @interface NSData (AES)
 
 
-//加密
+// 十六进制转Data
++ (NSData*)dataForHexString:(NSString*)hexString;
+
+// AES128加密
 - (NSData *)AES128EncryptWithKey:(NSString *)key iv:(NSString *)iv;
 
-
-//解密
+// AES128解密
 - (NSData *)AES128DecryptWithKey:(NSString *)key iv:(NSString *)iv;
 
 
